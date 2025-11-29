@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عربة التسوق - GLOW</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>GLOW</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="cart.html" class="active">عربة التسوق</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- محتوى صفحة السلة -->
+    <main class="cart-container">
+        <h2>عربة التسوق</h2>
+        
+        <div class="cart-items">
+            <!-- العناصر ستضاف هنا بالJavaScript -->
+            <div class="empty-cart" id="emptyCart">
+                <p>عربة التسوق فارغة</p>
+                <a href="products.html" class="btn">تسوق الآن</a>
+            </div>
+        </div>
+
+        <div class="cart-summary" id="cartSummary" style="display: none;">
+            <div class="summary-details">
+                <h3>ملخص الطلب</h3>
+                <div class="total-price">
+                    <span>المجموع:</span>
+                    <span id="totalAmount">0.00 د.ج</span>
+                </div>
+                <button class="checkout-btn">إتمام الشراء</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

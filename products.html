@@ -9,6 +9,166 @@
 <body>
     <header>
         <nav>
-            <div class="logo">🌺 متجر GLOW</div>
+            <div class="logo">متجر GLOW</div>
             <ul>
-                <li
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="#" onclick="showCart()">سلة التسوق</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <h1>منتجاتنا المميزة</h1>
+            <p>اكتشف أحدث المنتجات بأفضل الأسعار</p>
+            
+            <div class="products-grid" id="products-container">
+                <!-- المنتجات ستظهر هنا تلقائياً -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // بيانات المنتجات
+        const products = [
+            { id: 1, name: "ساعة ذكية حديثة", price: 299, description: "ساعة ذكية بتقنيات متطورة" },
+            { id: 2, name: "سماعات لاسلكية", price: 199, description: "سماعات عالية الجودة" },
+            { id: 3, name: "هاتف ذكي", price: 899, description: "أحدث هاتف ذكي" },
+            { id: 4, name: "لابتوب محمول", price: 1299, description: "لابتوب قوي للأعمال" },
+            { id: 5, name: "كاميرا احترافية", price: 799, description: "كاميرا ديجيتال بدقة عالية" },
+            { id: 6, name: "طابعة لاسلكية", price: 349, description: "طابعة متعددة الوظائف" }
+        ];
+
+        // عرض المنتجات
+        function displayProducts() {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = `
+                    <div class="product-card">
+                        <div class="product-image">📱</div>
+                        <h3>${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${product.price} د.ج</div>
+                        <button class="add-to-cart" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">
+                            🛒 أضف إلى السلة
+                        </button>
+                    </div>
+                `;
+                container.innerHTML += productCard;
+            });
+        }
+
+        // إضافة إلى السلة
+        function addToCart(productId, productName, productPrice) {
+            alert(`تم إضافة ${productName} إلى السلة!`);
+        }
+
+        // عرض السلة
+        function showCart() {
+            alert('سيتم إضافة صفحة السلة قريباً!');
+        }
+
+        // تحميل المنتجات عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts();
+        });
+    </script>
+
+    <style>
+        /* تنسيقات إضافية للمنتجات */
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .products-section h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .products-section p {
+            color: #7f8c8d;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            color: #2c3e50;
+            margin: 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .product-description {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .add-to-cart {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .add-to-cart:hover {
+            background: #219a52;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</body>
+</html>
